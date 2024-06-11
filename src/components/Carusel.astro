@@ -1,0 +1,50 @@
+<div
+  id="carouselExampleSlidesOnly"
+  class="relative"
+  data-twe-carousel-init
+  data-twe-ride="carousel">
+  <!--Carousel items-->
+  <div
+    class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
+    <!--First item-->
+    <div
+      class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+      data-twe-carousel-item
+      data-twe-carousel-active>
+      <img
+        src="/carusel/11.png"
+        class="block w-full"
+        alt="bienvenidos utbb." />
+    
+    </div>
+    <!--Second item-->
+    <div
+      class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+      data-twe-carousel-item>
+      <img
+        src="/carusel/22.png"
+        class="block w-full"
+        alt="tour utbb." />
+
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.querySelector('[data-twe-carousel-init]');
+    const items = carousel.querySelectorAll('[data-twe-carousel-item]');
+    let currentIndex = 0;
+    const interval = 6000; // Change interval in milliseconds (e.g., 3000ms = 3 seconds)
+
+    function showNextSlide() {
+      items[currentIndex].classList.remove('block');
+      items[currentIndex].classList.add('hidden');
+      currentIndex = (currentIndex + 1) % items.length;
+      items[currentIndex].classList.remove('hidden');
+      items[currentIndex].classList.add('block');
+    }
+
+    setInterval(showNextSlide, interval);
+  });
+</script>
